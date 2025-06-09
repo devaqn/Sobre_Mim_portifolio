@@ -1,0 +1,286 @@
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #2c3e50;
+    --text-color: #ffffff;
+    --background-dark: #16222a;
+    --background-light: #1a252f;
+    --accent-color: #3498db;
+    --transition-speed: 0.3s;
+    --border-radius: 8px;
+    --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --box-shadow-accent: 0 5px 15px rgba(46, 204, 113, 0.4);
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.links-sociais {
+    position: fixed;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    z-index: 1000;
+    padding: var(--spacing-xs);
+}
+
+.icone-social {
+    width: 40px;
+    height: 40px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all var(--transition-speed) ease;
+    box-shadow: var(--box-shadow-light);
+    border: 2px solid var(--primary-color);
+}
+
+.icone-social:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: var(--box-shadow-accent);
+}
+
+.navegacao-principal {
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-lg);
+    z-index: 1000;
+}
+
+.navegacao-principal ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.navegacao-principal a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+}
+
+.navegacao-principal a:hover,
+.navegacao-principal a.active {
+    color: var(--primary-color);
+}
+
+.secao-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--background-dark), var(--background-light));
+}
+
+.secao-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(46, 204, 113, 0.1) 0%, transparent 50%);
+    animation: pulse 5s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+.conteudo-hero {
+    flex: 1;
+    max-width: 600px;
+    text-align: left;
+    margin-right: var(--spacing-xl);
+}
+
+.secao-hero h1 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-color);
+}
+
+.secao-hero h2 {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.secao-hero p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.botao {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-speed) ease;
+    margin-right: var(--spacing-sm);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: var(--box-shadow-light);
+}
+
+.botao.principal {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(46, 204, 113, 0.3);
+}
+
+.botao.secundario {
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+}
+
+.botao.secundario:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.imagem-perfil-container {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg);
+}
+
+.foto-perfil {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--box-shadow-light);
+    transition: transform var(--transition-speed) ease;
+    border: 4px solid var(--accent-color);
+    padding: 4px;
+}
+
+@media (max-width: 1200px) {
+    .secao-hero {
+        padding: var(--spacing-lg);
+    }
+    .secao-hero h2 {
+        font-size: 3.5rem;
+    }
+    .links-sociais {
+        left: var(--spacing-sm);
+    }
+    .navegacao-principal {
+        right: var(--spacing-md);
+    }
+}
+
+@media (max-width: 900px) {
+    .secao-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-md);
+    }
+    .conteudo-hero {
+        margin-bottom: var(--spacing-lg);
+        margin-right: 0;
+    }
+    .secao-hero h2 {
+        font-size: 3rem;
+    }
+    .foto-perfil {
+        width: 250px;
+        height: 250px;
+    }
+    .navegacao-principal ul {
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .links-sociais {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: var(--spacing-md);
+        transform: none;
+        width: 100%;
+    }
+    .navegacao-principal {
+        display: none;
+    }
+    .secao-hero {
+        padding: var(--spacing-md);
+    }
+    .secao-hero h1 {
+        font-size: 1.8rem;
+    }
+    .secao-hero h2 {
+        font-size: 2.5rem;
+    }
+    .secao-hero p {
+        font-size: 1rem;
+    }
+    .botao {
+        padding: var(--spacing-sm);
+        margin-right: var(--spacing-xs);
+    }
+    .foto-perfil {
+        width: 200px;
+        height: 200px;
+    }
+}
